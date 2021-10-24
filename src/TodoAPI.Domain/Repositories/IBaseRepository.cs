@@ -10,6 +10,6 @@ namespace TodoApi.Domain.Repositories
         Task<T> GetByIdAsync(int? id);
         Task<IEnumerable<T>> GetAll();
         Task UpdateAsync(int? id, T entity);
-        Task RemoveAsync(int id);
+        Task RemoveAsync(int? id);
     }
 }

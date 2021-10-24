@@ -42,15 +42,16 @@ namespace TodoApi.Infrastructure.Data.Repositories
         public async virtual Task UpdateAsync(int? id, T entity)
         {
             T retrievedEntity = await GetByIdAsync(id);
-            EntityHelper.EnsureNotNull(entity);
-            EntityHelper.EnsureNotNull(retrievedEntity);
+            Context.Entry(retrievedEntity).State = EntityState.Detached;
 
+            EntityHelper.EnsureNotNull(entity);
             entity.Id = id.Value;
+
             Context.Update(entity);
             await Context.SaveChangesAsync();
         }
 
-        public async virtual Task RemoveAsync(int id)
+        public async virtual Task RemoveAsync(int? id)
         {
             T entity = await GetByIdAsync(id);
             EntityHelper.EnsureNotNull(entity);
