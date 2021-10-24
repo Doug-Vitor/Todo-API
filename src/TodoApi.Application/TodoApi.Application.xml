@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TodoApi.Application</name>
+    </assembly>
+    <members>
+        <member name="M:TodoApi.Application.Controllers.TodosController.Create(TodoApi.Domain.ViewModels.TodoViewModels.TodoInputModel)">
+            <summary>
+            Insere um novo lembrete no banco de dados.
+            </summary>
+            <param name="inputModel">O lembrete a ser criado.</param>
+            <returns></returns>
+        </member>
+        <member name="M:TodoApi.Application.Controllers.TodosController.GetById(System.Nullable{System.Int32})">
+            <summary>
+            Recupera um lembrete correspondente ao ID fornecido.
+            </summary>
+            <param name="id">O ID do lembrete a ser recuperado.</param>
+            <returns></returns>
+        </member>
+        <member name="M:TodoApi.Application.Controllers.TodosController.GetAll">
+            <summary>
+            Recupera todos os lembretes registrados no banco de dados.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TodoApi.Application.Controllers.TodosController.Remove(System.Nullable{System.Int32})">
+            <summary>
+            Remove um lembrete do banco de dados correspondente ao ID fornecido.
+            </summary>
+            <param name="id">O ID do lembrete a ser excluído.</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
