@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using TodoApi.Application.Configurations;
 
 namespace TodoApi.Application
 {
@@ -21,6 +22,7 @@ namespace TodoApi.Application
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "TodoApi.Application", Version = "v1" });
             });
+            services.AddCoreServices(Configuration);
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
