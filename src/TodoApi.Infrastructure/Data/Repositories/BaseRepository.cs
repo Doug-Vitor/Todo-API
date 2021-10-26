@@ -20,7 +20,7 @@ namespace TodoApi.Infrastructure.Data.Repositories
         {
             EntityHelper.EnsureNotNull(entity);
 
-            entity.CreatedAt = DateTime.UtcNow;
+            entity.CreatedAt = DateTime.Now;
             await Context.AddAsync(entity);
             await Context.SaveChangesAsync();
         }
@@ -36,7 +36,7 @@ namespace TodoApi.Infrastructure.Data.Repositories
         {
             IList<T> entities = await Context.Set<T>().ToListAsync();
 
-            return entities.Count == 0 ? throw new NotFoundException() : entities;
+            return entities;
         }
 
         public async virtual Task UpdateAsync(int? id, T entity)

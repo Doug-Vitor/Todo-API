@@ -6,6 +6,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using TodoApi.Application.Configurations;
 using TodoApi.Application.Configurations.Mapper;
+using TodoApi.Infrastructure.Data.Services;
 
 namespace TodoApi.Application
 {
@@ -27,10 +28,13 @@ namespace TodoApi.Application
             services.AddMapper();
         }
 
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, SeedingServices seedServices)
         {
             if (env.IsDevelopment())
+            {
                 app.UseDeveloperExceptionPage();
+                seedServices.SeedDatabase();
+            }
 
             app.UseSwagger();
             app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "TodoApi.Application v1"));

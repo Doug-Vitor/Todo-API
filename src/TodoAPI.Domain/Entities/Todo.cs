@@ -8,6 +8,17 @@ namespace TodoApi.Domain.Entities
         public string Description { get; set; }
         public bool IsFinished { get; set; }
 
-        public TimeSpan ElapsedTime() => CreatedAt - DateTime.UtcNow;
+        public Todo(string title, string description, bool isFinished)
+        {
+            Title = title;
+            Description = description;
+            IsFinished = isFinished;
+        }
+
+        public string ElapsedTime()
+        {
+            TimeSpan totalElapsedTime = DateTime.Now - CreatedAt;
+            return $"{totalElapsedTime.Days} dias e {totalElapsedTime.Hours}h{totalElapsedTime.Minutes}";
+        }
     }
 }

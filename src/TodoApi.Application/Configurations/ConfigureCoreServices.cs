@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using TodoApi.Domain.Repositories;
 using TodoApi.Infrastructure.Data.Context;
 using TodoApi.Infrastructure.Data.Repositories;
+using TodoApi.Infrastructure.Data.Services;
 
 namespace TodoApi.Application.Configurations
 {
@@ -15,6 +16,7 @@ namespace TodoApi.Application.Configurations
             services.AddDbContext<TodoContext>(options => options.UseSqlServer(
                 configuration.GetConnectionString("Default")));
             services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
+            services.AddScoped<SeedingServices>();
 
             return services;
         }

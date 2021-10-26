@@ -82,18 +82,7 @@ namespace TodoApi.Application.Controllers
         /// <returns></returns>
         [HttpGet]
         [ProducesResponseType(200, Type = typeof(IEnumerable<Todo>))]
-        [ProducesResponseType(404, Type = typeof(ErrorViewModel))]
-        public async Task<IActionResult> GetAll()
-        {
-            try
-            {
-                return Ok(await _todoRepository.GetAll());
-            }
-            catch (NotFoundException)
-            {
-                return NotFound(new ErrorViewModel(HttpStatusCode.NotFound, "Não foi possível recuperar nenhum lembrete."));
-            }
-        }
+        public async Task<IActionResult> GetAll() => Ok(await _todoRepository.GetAll());
 
         [HttpPut("{id}")]
         [ProducesResponseType(200, Type = typeof(Todo))]
