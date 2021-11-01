@@ -42,10 +42,12 @@ namespace TodoApi.Infrastructure.Data.Repositories
         public async virtual Task UpdateAsync(int? id, T entity)
         {
             T retrievedEntity = await GetByIdAsync(id);
-            Context.Entry(retrievedEntity).State = EntityState.Detached;
 
             EntityHelper.EnsureNotNull(entity);
             entity.Id = id.Value;
+            entity.CreatedAt = retrievedEntity.CreatedAt;
+
+            Context.Entry(retrievedEntity).State = EntityState.Detached;
 
             Context.Update(entity);
             await Context.SaveChangesAsync();

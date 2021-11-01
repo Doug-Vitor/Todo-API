@@ -8,6 +8,10 @@ namespace TodoApi.Domain.ViewModels
         public HttpStatusCode StatusCode { get; set; }
         public IList<string> ErrorsMessage { get; set; }
 
+        public ErrorViewModel()
+        {
+        }
+
         public ErrorViewModel(HttpStatusCode statusCode, string errorMessage)
         {
             StatusCode = statusCode;
