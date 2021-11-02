@@ -84,17 +84,28 @@ namespace TodoApi.Application.Controllers
         [ProducesResponseType(200, Type = typeof(IEnumerable<Todo>))]
         public async Task<IActionResult> GetAll() => Ok(await _todoRepository.GetAll());
 
-        [HttpPut("{id}")]
+        /// <summary>
+        /// Atualiza campos de um lembrete conforme o fornecido.
+        /// </summary>
+        /// <param name="id">O ID do lembrete a ser atualizado.</param>
+        /// <param name="inputModel">O lembrete com campos atualizados.</param>
+        /// <returns></returns>
+        [HttpPatch("{id}")]
         [ProducesResponseType(200, Type = typeof(Todo))]
         [ProducesResponseType(400, Type = typeof(ErrorViewModel))]
         [ProducesResponseType(404, Type = typeof(ErrorViewModel))]
-        public async Task<IActionResult> Update(int? id, TodoInputModel inputModel)
+        public async Task<IActionResult> Update(int? id, [FromBody] TodoInputModel inputModel)
         {
             try
             {
-                Todo todo = _mapper.Map<Todo>(inputModel);
-                await _todoRepository.UpdateAsync(id, todo);
-                return Ok(todo);
+                if (ModelState.IsValid)
+                {
+                    Todo todo = _mapper.Map<Todo>(inputModel);
+                    await _todoRepository.UpdateAsync(id, todo);
+                    return Ok(todo);
+                }
+
+                return BadRequest(new ErrorViewModel(HttpStatusCode.BadRequest, ModelState.Values.SelectMany(error => error.Errors).Select(message => message.ErrorMessage).ToList()));
             }
             catch (ArgumentNullException)
             {

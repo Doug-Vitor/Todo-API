@@ -24,6 +24,14 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:TodoApi.Application.Controllers.TodosController.Update(System.Nullable{System.Int32},TodoApi.Domain.ViewModels.TodoViewModels.TodoInputModel)">
+            <summary>
+            Atualiza campos de um lembrete conforme o fornecido.
+            </summary>
+            <param name="id">O ID do lembrete a ser atualizado.</param>
+            <param name="inputModel">O lembrete com campos atualizados.</param>
+            <returns></returns>
+        </member>
         <member name="M:TodoApi.Application.Controllers.TodosController.Remove(System.Nullable{System.Int32})">
             <summary>
             Remove um lembrete do banco de dados correspondente ao ID fornecido.
