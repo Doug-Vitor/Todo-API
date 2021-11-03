@@ -58,7 +58,7 @@
 <br>
 <h3>Em um futuro breve:</h3>
 <ul>
-  <li>Testes unitários e funcionais.</li>
+  <li>Testes unitários e de integração.</li>
 </ul>
 
 <br/>
