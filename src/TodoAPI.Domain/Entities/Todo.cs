@@ -14,11 +14,5 @@ namespace TodoApi.Domain.Entities
             Description = description;
             IsFinished = isFinished;
         }
-
-        public string ElapsedTime()
-        {
-            TimeSpan totalElapsedTime = DateTime.Now - CreatedAt;
-            return $"{totalElapsedTime.Days} dias e {totalElapsedTime.Hours}h{totalElapsedTime.Minutes}";
-        }
     }
 }

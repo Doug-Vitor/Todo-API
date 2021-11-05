@@ -32,12 +32,7 @@ namespace TodoApi.Infrastructure.Data.Repositories
             return await Context.Set<T>().FirstOrDefaultAsync(prop => prop.Id == id) ?? throw new NotFoundException();
         }
 
-        public async virtual Task<IEnumerable<T>> GetAll()
-        {
-            IList<T> entities = await Context.Set<T>().ToListAsync();
-
-            return entities;
-        }
+        public async virtual Task<IEnumerable<T>> GetAll() => await Context.Set<T>().ToListAsync();
 
         public async virtual Task UpdateAsync(int? id, T entity)
         {
