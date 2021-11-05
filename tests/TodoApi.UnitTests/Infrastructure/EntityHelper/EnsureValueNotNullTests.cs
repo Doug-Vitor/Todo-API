@@ -9,7 +9,7 @@ namespace TodoApi.UnitTests.Infrastructure.EntityHelper
         {
         }
 
-        public void GivenNullValueShouldThrowArgumentNullException() => 
+        public void GivenNullValueMustThrowArgumentNullException() => 
             Assert.Throws<ArgumentNullException>(() => TodoApi.Infrastructure.Data.Helpers.EntityHelper.EnsureNotNull(value: null));
     }
 }

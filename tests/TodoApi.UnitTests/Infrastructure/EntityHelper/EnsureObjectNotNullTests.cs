@@ -10,7 +10,7 @@ namespace TodoApi.UnitTests.Infrastructure.EntityHelper
         }
 
         [Fact]
-        public void GivenNullObjectShouldThrowArgumentNullException() =>
+        public void GivenNullObjectMustThrowArgumentNullException() =>
             Assert.Throws<ArgumentNullException>(() => TodoApi.Infrastructure.Data.Helpers.EntityHelper.EnsureNotNull(entity: null));
     }
 }
