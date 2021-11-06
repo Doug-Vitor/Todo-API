@@ -46,6 +46,7 @@
 <h4>
  <ul>
   <li>Criação de uma API respeitando os conceitos da arquitetura RESTful.</li>
+  <li>Introdução à criação de testes unitários e de integração.</li>
  </ul>
 </h4>
 
@@ -55,11 +56,11 @@
   <li>Projeto referência: <a href="https://github.com/dotnet-architecture/eShopOnWeb">Clique aqui</a></li>
 </ul>
 
-<br>
-<h3>Em um futuro breve:</h3>
-<ul>
-  <li>Testes unitários e de integração.</li>
-</ul>
 
-<br/>
-<h4>O autor deste projeto iniciou recentemente os estudos sobre a abordagem DDD. É válido ressaltar que tal abordagem deve ser utilizada para resolver problemas da aplicação e não deve ser usada em qualquer aplicação como arquitetura. Deve-se analisar o contexto para tomar tal decisão. O Sistema Todo foi projetado visando atender o domínio apenas para fins didáticos.</h3>
+
+
+
+
+
+
+
