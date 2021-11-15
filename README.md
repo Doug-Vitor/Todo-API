@@ -37,7 +37,7 @@
    </ul>
   </li>
   
-  <li>Abra o Console de Gerenciador de Pacotes do Nuget e execute o seguinte comando para criar e restaurar as tabelas do banco de dados:<blockquote>Update-Database</blockquote></li>
+  <li>Abra o Console de Gerenciador de Pacotes do Nuget e execute o seguinte comando para criar e restaurar as tabelas do banco de dados:<blockquote>Update-Database -Project src\TodoApi.Infrastructure -StartupProject src\TodoApi.Application</blockquote></li>
  </ol>
 </h4>
 
